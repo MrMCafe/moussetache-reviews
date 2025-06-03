@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Reviews for Moussetache Cafe</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff8dc;
+      padding: 2rem;
+      max-width: 700px;
+      margin: auto;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .logo {
+      display: block;
+      margin: 0 auto 1rem auto;
+      max-width: 150px;
+    }
+    textarea, select {
+      width: 100%;
+      font-size: 1rem;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      border: 1px solid #d4af37;
+      border-radius: 5px;
+      background: #fffef5;
+    }
+    textarea {
+      height: 120px;
+    }
+    .platforms {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .platforms button, .control-buttons button {
+      margin: 0.25rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #f0c36d;
+      color: #333;
+      transition: background 0.3s;
+    }
+    .platforms button:hover, .control-buttons button:hover {
+      background-color: #e2ac39;
+    }
+    .copy-button {
+      background: #e88b16;
+      color: white;
+      border: none;
+      margin-top: 1rem;
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 5px;
+    }
+    .copy-button:hover {
+      background: #c7730c;
+    }
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+      .platforms button {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img src="logo.jpg" alt="Moussetache Cafe Logo" class="logo">
+  <h1>Customer Reviews for Moussetache Cafe</h1>
+
+  <div class="control-buttons">
+    <button onclick="randomReview()">Random</button>
+  </div>
+
+  <label for="review-select">Choose a pre-written review:</label><br />
+  <select id="review-select" onchange="populateReview()">
+    <option value="">-- Select a review --</option>
+    <option value="Absolutely loved the drinks and the vibe! One of the best boba spots I've been to.">Absolutely loved the drinks and the vibe! One of the best boba spots I've been to.</option>
+    <option value="Friendly staff, cozy space, and amazing coffee. Highly recommend Moussetache Café!">Friendly staff, cozy space, and amazing coffee. Highly recommend Moussetache Café!</option>
+    <option value="A hidden gem! The artwork and drinks make this a unique experience.">A hidden gem! The artwork and drinks make this a unique experience.</option>
+    <option value="Top-notch service and creative menu. Always a joy to stop by!">Top-notch service and creative menu. Always a joy to stop by!</option>
+    <option value="Incredible flavors and beautiful presentation. The mango jasmine boba is a must-try!">Incredible flavors and beautiful presentation. The mango jasmine boba is a must-try!</option>
+    <option value="So impressed by the staff's kindness and attention to detail. A+ experience.">So impressed by the staff's kindness and attention to detail. A+ experience.</option>
+    <option value="You can feel the love put into every drink. It’s our new weekend ritual.">You can feel the love put into every drink. It’s our new weekend ritual.</option>
+    <option value="Art meets coffee here — such a warm and creative space.">Art meets coffee here — such a warm and creative space.</option>
+    <option value="Every time I come here, I leave happier. This place is magic.">Every time I come here, I leave happier. This place is magic.</option>
+    <option value="Absolutely amazing! The matcha latte was perfectly balanced and the ambiance is so cozy.">Absolutely amazing! The matcha latte was perfectly balanced and the ambiance is so cozy.</option>
+    <option value="Delicious drinks, friendly service, and such a creative atmosphere. A must-visit in Prescott.">Delicious drinks, friendly service, and such a creative atmosphere. A must-visit in Prescott.</option>
+    <option value="Moussetache is my favorite hangout spot! Great drinks and even better people.">Moussetache is my favorite hangout spot! Great drinks and even better people.</option>
+    <option value="This place is magical. The combination of art, boba, and kindness is unmatched.">This place is magical. The combination of art, boba, and kindness is unmatched.</option>
+    <option value="Every drink is a masterpiece. You can tell how much thought goes into everything they do.">Every drink is a masterpiece. You can tell how much thought goes into everything they do.</option>
+    <option value="Love bringing friends here. Everyone always walks away with a smile and a new favorite drink.">Love bringing friends here. Everyone always walks away with a smile and a new favorite drink.</option>
+  </select>
+
+  <br />
+  <label for="review">Or write your own review:</label><br />
+  <textarea id="review"></textarea><br />
+  <button class="copy-button" onclick="copyReview()">Copy Review Text</button>
+
+  <h3>Post to Platforms:</h3>
+  <div class="platforms">
+    <button onclick="openLink('https://www.google.com/search?sca_esv=cc16af6e80ebe361&sxsrf=AE3TifM1JUIuUIV3PRsMBsgWWM_Uw-YXYQ:1748914377420&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E3JkC0-wacXAfNmSEi_A1zTR6GVjSsXWcxuEzub9uk4EzQTo7_qNpNmfK8PSChqbcatdXT8SnspvPtq4ZqfXpuaBkaZ0eofCa2YM3dc9ftM2fEUegA%3D%3D&q=Moussetache+Cafe+Reviews')">Google</button>
+    <button onclick="openLink('https://www.yelp.com/biz/mr-moussetache-cafe-prescott')">Yelp</button>
+    <button onclick="openLink('https://www.facebook.com/mrmoussetacheprescottaz/')">Facebook</button>
+    <button onclick="openLink('https://www.restaurantji.com/az/prescott/moussetache-cafe-/')">Restaurantji</button>
+    <button onclick="openLink('https://www.instagram.com/moussetache_cafe/')">Instagram</button>
+  </div>
+
+  <script>
+    function populateReview() {
+      const selectedReview = document.getElementById('review-select').value;
+      document.getElementById('review').value = selectedReview;
+    }
+
+    function copyReview() {
+      const text = document.getElementById('review').value;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Review copied to clipboard!');
+      });
+    }
+
+    function openLink(url) {
+      window.open(url, '_blank');
+    }
+
+    function randomReview() {
+      const select = document.getElementById('review-select');
+      const options = Array.from(select.options).filter(opt => opt.value);
+      const choice = options[Math.floor(Math.random() * options.length)];
+      select.value = choice.value;
+      populateReview();
+    }
+  </script>
+</body>
+</html>
